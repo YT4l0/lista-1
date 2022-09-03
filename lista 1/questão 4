@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <math.h>
+
+void calc_hexagono(float l, float *a, float *p);
+
+int main(){
+	float l, p, a;        
+    printf("tamanho do lado: ");
+    scanf("%f", &l);
+    calc_hexagono(l, &a, &p);         
+    printf("A area = %.2f\n", a);            
+    printf("O perimetro = %.2f\n", p);  
+	return 0;
+}
+void calc_hexagono(float l, float *a, float *p){   
+	*a = (3 * pow(l, 2) * sqrt(3))/ 2;       
+    *p = 6 * l;                         
+}
