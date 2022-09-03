@@ -35,11 +35,11 @@ char situacao(float p1, float p2, float p3, int faltas, int aulas, float *media)
             return'A';
         } 
     else if(a <= 25 && *media < 6){ 
-    	printf("Aluno REPROVADO");
+    	printf("Aluno REPROVAD!");
             return'R'; 
         }
     else {
-    	printf("Aluno REPROVADO POR FALTAS");   
+    	printf("Aluno REPROVADO POR FALTAS!");   
             return'F'; 
         }
 }
