@@ -8,8 +8,7 @@ int main(void){
    
     float p1, p2, p3, media;             
     int faltas,aulas;
-    printf("Aluno Thiago Luan Moreira Sousa");
-    printf("\n\n");
+   
    
     scanf("%f", &p1);
     printf("Digite a segunda nota: ");
