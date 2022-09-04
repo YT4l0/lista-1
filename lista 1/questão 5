@@ -1,45 +1,48 @@
+
 #include<stdio.h>
 #include<locale.h>
 
 
+char situacao(float n1, float n2, float n3, int faltas, int aulas, float *media);  
 
 int main(void){
     setlocale(LC_ALL, "Portuguese");
-   
-    float p1, p2, p3, media;             
+    
+    float n1, n2, n3, media;             
     int faltas,aulas;
-   
-   
-    scanf("%f", &p1);
+    
+    
+    printf("Digite a primeira nota: ");
+    scanf("%f", &n1);
     printf("Digite a segunda nota: ");
-    scanf("%f", &p2);
+    scanf("%f", &n2);
     printf("Digite a terceira nota: ");
-    scanf("%f", &p3);
+    scanf("%f", &n3);
     printf("Digite o total de aulas: ");
     scanf("%d", &aulas);
     printf("Digite o total de faltas: ");
     scanf("%d", &faltas);   
 
-    char s = situacao(p1, p2, p3, faltas, aulas, &media);  
+    char s = situacao(n1, n2, n3, faltas, aulas, &media);  
 return(0);
 }
 
 
-char situacao(float p1, float p2, float p3, int faltas, int aulas, float *media){  
+char situacao(float n1, float n2, float n3, int faltas, int aulas, float *media){  
 
-    printf("A média do aluno é %.1f\t", (*media = p1 + p2 + p3)/3); 
+    printf("A média do aluno é %.1f\t", (*media = n1 + n2 + n3)/3); 
     int a;                      
     a=(100 * faltas/aulas);     
     if(a <= 25 && *media >= 6){  
     	printf("Aluno APROVADO");
             return'A';
         } 
-    else if(a <= 25 && *media < 6){ 
-    	printf("Aluno REPROVAD!");
+    else if(a <= 25 && *media < 6){  
+    	printf("Aluno REPROVADO");
             return'R'; 
         }
     else {
-    	printf("Aluno REPROVADO POR FALTAS!");   
+    	printf("Aluno REPROVADO POR FALTAS");   //
             return'F'; 
         }
 }
