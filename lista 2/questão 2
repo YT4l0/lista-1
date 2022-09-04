@@ -14,7 +14,7 @@ scanf("%d", &n);
 
 float*vn=(float*)malloc(n*sizeof(float));
 if (vn==NULL){
-    printf("erro de memoria");
+    printf("erro";
     exit(1);
 }
     for (i=0; i<n; i++){
