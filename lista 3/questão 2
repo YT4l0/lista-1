@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include  <stdlib.h>
+
+int contem(int **matriz, int linha, int coluna, int num){
+	int j, i, r;
+	for(i = 0; i<linha; i++){
+		for(j = 0; j<coluna; j++){
+			if(matriz[i][j] == num){
+				r = 1;
+			}else{
+				r = 0;
+			}
+		}
+	}
+	
+	return r;
+}
+
+int main(){
+
+	int num;
+	int **matriz, i, j;
+	int linhas, colunas;
+	
+	printf("Informe a quantidade de linhas da matriz: \n");
+	scanf("%d", &linhas);
+	printf("Informa a quantidade de colunas da matriz: \n");
+	scanf("%d", &colunas);
+	
+	matriz = (int **)malloc(linhas * sizeof(int*));
+	for(i = 0; i< linhas; i++){
+		matriz[i] = (int *)malloc(colunas * sizeof(int));
+	}
+	
+	for(i = 0; i<linhas; i++){
+		printf("digite os valores: ");
+		for(j=0; j<colunas; j++){
+			
+			scanf("%d", &matriz[i][j]);
+		}
+	}
+	
+	printf("\n\nDADOS:\n");
+	for(i = 0; i<linhas; i++){
+		for(j=0; j<colunas; j++){
+			printf("%d ", matriz[i][j]);
+		}
+		printf("\n");
+	}
+	
+	printf("Infofme um numero: \n");
+	scanf("%d", &num);
+	
+	printf("%d ", contem(matriz, linhas, colunas, num));
+	
+	//liberação de memoria.
+	for(i = 0; i<linhas; i++){
+		free(matriz[i]);
+	}
+	
+	free(matriz);
+
+	return 0;
+}
