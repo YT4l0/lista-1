@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(void) {
+	setlocale(LC_ALL, "portuguese");
+	int n, i, j;
+	
+	
+	int mat[3][3];
+	
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			printf("digite os valores: ");
+			scanf("%i", &mat[i][j]);
+		}
+	}
+	
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			printf("%i ", mat[i][j]);
+		}
+		printf("\n");
+	}
+
+	int somaDP = 0, somaDS = 0;
+	
+	//soma diagonal principal
+	for (i = 0; i < 3; i++) {
+		somaDP += mat[i][i];
+	}
+	
+	//soma diagonal secundária
+	for (i = 0; i < 3; i++) {
+		somaDS += mat[i][3-i-1];
+	}
+	
+	//soma linhas
+	printf("\nSoma das linhas: ");
+	int vetL[n];
+	for (i = 0; i < 3; i++) {
+		vetL[i] = 0;
+		for (j = 0; j < 3; j++) {
+			vetL[i] += mat[i][j];
+		}
+	}
+	for (i = 0; i < 3; i++) {
+		printf("%i ", vetL[i]);
+	}
+
+	//soma colunas
+	printf("\nSoma das colunas: ");
+	int vetC[3];
+	for (j = 0; j < 3; j++) {
+		vetC[j] = 0;
+		for (i = 0; i < 3; i++) {
+			vetC[j] += mat[i][j];
+		}
+	}
+	for (i = 0; i < 3; i++) {
+		printf("%i ", vetC[i]);
+	}
+	
+	printf("\nSoma diagonal principal %i e secundária %i\n", somaDP, somaDS);
+
+	int testaL = 1, testaC = 1;
+	for (i = 1; i <  3; i++) {
+		if (vetL[i] != vetL[i-1]) {
+			testaL = 0;
+			break;
+		} else if (vetC[i] != vetC[i-1]) {
+			testaC = 0;
+			break;
+		}
+	}
+	
+	if (testaL && testaC && somaDP == somaDS && somaDP == vetL[0]) {
+		printf("Quadrado magico");
+	} else {
+		printf("Quadrado nao magico");
+	}
+
+	return 0;
+}
